@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subject_scores', function (Blueprint $table) {
+        Schema::create('academic_semesters', function (Blueprint $table) {
             $table->id();
+            $table->string('academic_year');
+            $table->string('duration');
+            $table->boolean('academic_status')->default(true);
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subject_scores');
+        Schema::dropIfExists('academic_semesters');
     }
 };
